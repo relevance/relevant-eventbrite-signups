@@ -3,7 +3,7 @@ require 'eventbright'
 
 module Relevant
   class EventbriteSignups
-    Version = '0.0.1'
+    Version = '0.0.2'
     
     include Relevant::Widget
     
@@ -13,11 +13,11 @@ module Relevant
 
     template_format :haml
     template %q[
-%h2 Conj Signups
-%h3
-  = signup_count
+%h2= "#{event.title} - Signups"
+.eventbrite-signups
+  %h3= signup_count
 :css
-  h3 { margin-top: 5px; font-size: 72pt; text-align: center; }]
+  .eventbrite-signups h3 { margin-top: 5px; font-size: 72pt; text-align: center; }]
 
     def signup_count
       return '?' unless event
